@@ -1,7 +1,7 @@
 <div class="container">
   <div class="messages">
     <div class="message" *ngFor="let msg of conversation">
-      <p><span style="color:blue">{{msg.sender}}</span> : <span>{{msg.text}}</span></p>
+      <p><span style="color:blue">{{msg.sender}}</span>: <span>{{msg.text}}</span></p>
     </div>
   </div>
   <div class="send-message">
@@ -9,6 +9,3 @@
     <button class="msg-input-btn" (click)="sendMessage()">Send</button>
   </div>
 </div>
-<style>
-
-</style>

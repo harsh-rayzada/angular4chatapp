@@ -4,7 +4,8 @@ import * as io from 'socket.io-client';
 
 @Component({
   selector: 'home',
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 
 export class HomeComponent  implements OnInit{
@@ -30,7 +31,6 @@ export class HomeComponent  implements OnInit{
     this.socket = io('http://localhost:3000');
 
     this.socket.on('room_created', function(roomData){
-      console.log('roomdata',roomData, this.sender);
       if(roomData.sender != this.sender && roomData.room == (roomData.sender+'_'+this.sender)){
         localStorage.setItem('roomData', JSON.stringify(roomData));
         // this.router.navigate(['chat']);
@@ -39,13 +39,15 @@ export class HomeComponent  implements OnInit{
         console.log(roomData.sender, this.sender, roomData.sender != this.sender);
       }
     }.bind(this));
+
+    this.socket.on('error', function(error){
+      alert(error.message);
+    }.bind(this));
   }
 
   startChat(user){
-    console.log('user', user);
     localStorage.setItem('chatUser', JSON.stringify({user: user, initiator: this.sender}));
 
-    // this.router.navigate(['chat']);
     window.open('chat');
   }
 }

@@ -31,13 +31,12 @@ export class UserLoginComponent implements OnInit, OnDestroy{
           break;
         case 'not_found':
           this.showLogin = true;
-          //show name input box either below it or like gmail
-          // this.socket.emit('signup', {
-          //   name: this.name,
-          //   nickname: this.username
-          // });
           break;
       }
+    }.bind(this));
+
+    this.socket.on('error', function(error){
+      alert(error.message);
     }.bind(this));
   }
 

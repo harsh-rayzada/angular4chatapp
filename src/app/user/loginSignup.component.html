@@ -1,23 +1,19 @@
 <div class="container">
     <div class="login-box">
         <div class="inner-container">
-          <input type="text" class="login-input" placeholder="Nickname" [(ngModel)]="nickname" [hidden]="showLogin"/>
-          <button (click)="login()" [hidden]="showLogin">Login</button>
-          <h4 [hidden]="!showLogin">Looks like we havent met before!</h4>
-          <input type="text" class="login-input" placeholder="Name" [(ngModel)]="name" [hidden]="!showLogin"/>
-          <button (click)="signup()" [hidden]="!showLogin">Signup</button>
-          <p [hidden]="!showLogin">Go back to <span (click)="showLogin = !showLogin">login</span></p>
+          <div [hidden]="showLogin">
+            <input type="text" class="login-input" placeholder="Nickname" [(ngModel)]="nickname"/>
+            <button (click)="login()" class="login-button">Login</button>
+          </div>
+          <div [hidden]="!showLogin">
+            <div>
+              <p class="login-msg" >Looks like we havent met before!</p>
+              <p class="login-msg">Enter your name to complete signup!</p>
+            </div>
+            <input type="text" class="login-input" placeholder="Name" [(ngModel)]="name"/>
+            <button (click)="signup()" class="login-button">Signup</button>
+            <p class="login-msg">Go back to <span (click)="showLogin = !showLogin">login</span></p>
+          </div>
         </div>
     </div>
 </div>
-
-<style>
-  .hide{
-    display: none;
-  }
-
-  span{
-    cursor: pointer;
-    color: red;
-  }
-</style>

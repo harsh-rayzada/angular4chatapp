@@ -5,7 +5,7 @@ import * as io from 'socket.io-client';
 @Component({
   selector: 'chat',
   templateUrl: './chat.component.html',
-  // styleUrls: ['./chat/chat.component.css']
+  styleUrls: ['./chat.component.css']
 })
 
 export class ChatComponent implements OnInit{
@@ -38,13 +38,16 @@ export class ChatComponent implements OnInit{
         this.room = roomData.room;
         this.receiver = roomData.receiver;
         let sender = this.sender, receiver = roomData.sender, room = this.room;
-        console.log(sender, receiver, room, receiver+'_'+sender);
         if(sender != null && receiver != null && sender == roomData.receiver && room == (receiver+'_'+sender)){
           this.socket.emit('join', this.room);
         }
       }else{
         window.close();
       }
+
+      this.socket.on('error', function(error){
+        alert(error.message);
+      }.bind(this));
 
       //emit join room event which should have receiver's nickname
 
@@ -62,7 +65,6 @@ export class ChatComponent implements OnInit{
 
   sendMessage(){
       if(this.message !== null && this.message != ' '){
-        console.log(this.sender, this.receiver, this.message, this.room);
         this.socket.emit('message', {
           sender: this.sender,
           receiver: this.receiver,

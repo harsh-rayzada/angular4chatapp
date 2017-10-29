@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="users-list" *ngIf="availableUsers.length > 0">
+    <h4>You are {{sender}}</h4>
+    <h3>Click on the name to talk to that person - </h3>
+    <div class="user-container">
+      <div class="user" *ngFor="let user of availableUsers" (click)="startChat(user)">
+        <h4>{{user}}</h4>
+      </div>
+    </div>
+  </div>
+  <div class="no-users" *ngIf="!availableUsers || availableUsers.length == 0">
+    <h3>Looks like no one is available right now.</h3>
+  </div>
+</div>

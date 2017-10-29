@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="login-box">
+        <div class="inner-container">
+          <input type="text" class="login-input" placeholder="Nickname" [(ngModel)]="nickname" [hidden]="showLogin"/>
+          <button (click)="login()" [hidden]="showLogin">Login</button>
+          <h4 [hidden]="!showLogin">Looks like we havent met before!</h4>
+          <input type="text" class="login-input" placeholder="Name" [(ngModel)]="name" [hidden]="!showLogin"/>
+          <button (click)="signup()" [hidden]="!showLogin">Signup</button>
+          <p [hidden]="!showLogin">Go back to <span (click)="showLogin = !showLogin">login</span></p>
+        </div>
+    </div>
+</div>
+
+<style>
+  .hide{
+    display: none;
+  }
+
+  span{
+    cursor: pointer;
+    color: red;
+  }
+</style>

@@ -1,5 +1,9 @@
 <div class="container">
-  <p class="login-text">Welcome <span>{{sender}}</span></p>
+  <div class="header">
+    <p class="login-text">Welcome <span>{{sender}}</span></p>
+    <div class="logout" (click)="logout()">Logout</div>
+  </div>
+
   <div class="users-list" *ngIf="availableUsers.length > 0">
     <p class="user-text">Click on the name to talk to that person - </p>
     <div class="user-container">

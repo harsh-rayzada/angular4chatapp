@@ -20,6 +20,10 @@ export class UserLoginComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(){
+    if(localStorage.getItem('nickname') != null || localStorage.getItem('nickname') != undefined){
+      this.router.navigate(['home']);
+    }
+
     this.socket = io('http://localhost:3000');
 
     this.socket.on('user', function(data){

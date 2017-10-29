@@ -12,12 +12,12 @@ export class ChatComponent implements OnInit{
   message = null; conversation = []; receiver = null; sender = null; socket = null; room = null;
 
   constructor(
-    private _router: Router
+    private router: Router
   ){}
 
   ngOnInit(){
       if(localStorage.getItem('nickname') == null){
-        this._router.navigate(['login']);
+        this.router.navigate(['login']);
       }else{
         this.sender = localStorage.getItem('nickname');
       }
@@ -55,6 +55,11 @@ export class ChatComponent implements OnInit{
         console.log('msgData',msgData);
         this.conversation.push({sender: msgData.sender, text: msgData.text});
       }.bind(this));
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['login']);
   }
 
   keypressHandler(e){

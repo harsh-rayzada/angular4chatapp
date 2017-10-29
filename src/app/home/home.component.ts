@@ -45,6 +45,11 @@ export class HomeComponent  implements OnInit{
     }.bind(this));
   }
 
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['login']);
+  }
+
   startChat(user){
     localStorage.setItem('chatUser', JSON.stringify({user: user, initiator: this.sender}));
 

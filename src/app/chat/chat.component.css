@@ -45,3 +45,22 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.logout{
+  width: 5%;
+  padding: 10px 10px;
+  border: 2px solid orange;
+  border-radius: 5px;
+  position: fixed;
+  right: 10px;
+  text-align: center;
+  font-family: sans-serif;
+  color: orange;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout:hover{
+  background: orange;
+  color: white;
+}

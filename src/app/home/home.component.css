@@ -8,9 +8,14 @@ p{
   margin: 0;
 }
 
+.header{
+
+}
+
 .login-text{
-  text-align: center;
+  text-align: left;
   font-size: 15px;
+  float: left;
 }
 
 .login-text span{
@@ -20,7 +25,8 @@ p{
 
 .users-list{
   width: 40%;
-  margin: 5% auto;
+  margin: 0% auto;
+  padding: 5% 0;
   /*border: 2px solid darkorange;*/
   border-radius: 5px;
 }
@@ -51,4 +57,22 @@ p{
 
 .no-users {
 
+}
+
+.logout{
+  width: 5%;
+  padding: 10px 10px;
+  border: 2px solid orange;
+  border-radius: 5px;
+  float: right;
+  text-align: center;
+  font-family: sans-serif;
+  color: orange;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout:hover{
+  background: orange;
+  color: white;
 }
